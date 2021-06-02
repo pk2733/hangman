@@ -4,7 +4,7 @@ import random
 
 def hangman_screen(tries):
     stages = [  # 0
-                """
+        """
                    --------
                    |      |
                    |      O
@@ -14,8 +14,8 @@ def hangman_screen(tries):
                    |
                    -
                 """,
-                # 1
-                """
+        # 1
+        """
                    --------
                    |      |
                    |      O
@@ -25,8 +25,8 @@ def hangman_screen(tries):
                    |
                    -
                 """,
-                # 2
-                """
+        # 2
+        """
                    --------
                    |      |
                    |      O
@@ -36,8 +36,8 @@ def hangman_screen(tries):
                    |
                    -
                 """,
-                # 3
-                """
+        # 3
+        """
                    --------
                    |      |
                    |      O
@@ -47,8 +47,8 @@ def hangman_screen(tries):
                    |
                    -
                 """,
-                # 4
-                """
+        # 4
+        """
                    --------
                    |      |
                    |
@@ -69,8 +69,8 @@ words = [line.strip().lower() for line in fin.readlines()]
 print("Welcome to Hangman game!")
 print('Type "exit" to exit the game!')
 
-def play_game():
 
+def play_game():
     tries = 4
     hangman_screen(tries)
 
