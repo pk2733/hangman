@@ -1,5 +1,6 @@
 import sys
 import random
+import time
 
 
 def hangman_screen(tries):
@@ -70,6 +71,23 @@ print("Welcome to Hangman game!")
 print('Type "exit" to exit the game!')
 
 
+def play_again():
+    again = str(input("Do you want to play again (type y / n): "))
+    if again == "y":
+        play_game()
+    else:
+        print("Goodbye!")
+        time.sleep(0.5)
+        sys.exit()
+
+
+def check_for_Blanks(myString):
+
+    if myString and myString.strip():
+        return False
+    return True
+
+
 def play_game():
     tries = 4
     hangman_screen(tries)
@@ -103,10 +121,15 @@ def play_game():
                 if letter == word[i]:
                     word_list[i] = letter
             if '_' not in word_list:
-                print("You won!")
-                print(f"word was", word)
+                print("\n")
+                print(f"You won! The word was: ", word)
+                print("\n")
+                time.sleep(0.5)
+                play_again()
                 break
             elif 'exit' in letter:
+                print("Goodbye!")
+                time.sleep(0.5)
                 sys.exit()
 
             if letter not in word:
@@ -116,12 +139,11 @@ def play_game():
                     tries -= 1
                 elif tries == 0:
                     print(hangman_screen(tries))
-                    print("You failed.")
-                    again = str(input("Do you want to play again (type yes or no): "))
-                    if again == "yes":
-                        play_game()
-                    else:
-                        sys.exit()
+                    print("\n")
+                    print(f"You failed. The word was: ", word)
+                    print("\n")
+                    time.sleep(0.5)
+                    play_again()
                     break
 
             print(*word_list)
